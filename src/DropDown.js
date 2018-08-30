@@ -32,7 +32,9 @@ class DropDown extends Component {
         key={data.id}
         name={data.name}
         // Bound the this context for scoping due to having a function for each iteration
-        onClick={this.handleClick.bind(this, data.name)}
+        // onClick={this.handleClick.bind(this, data.name)}
+        /* Another option is to simply use this callback syntax as long as the function isn't being passed as props to another component. */
+        onClick={() => this.handleClick(data.name)}
         style={{ cursor: 'pointer' }}
       >
         {data.name}
@@ -52,10 +54,12 @@ class DropDown extends Component {
           Lambda School{' '}
           <i
             // Dynamically assigns a classname based on the value of this.toggled
-            className={classnames({
-              'fa fa-arrow-down': toggled === false,
-              'fa fa-arrow-right': toggled === true,
-            })}
+            className={toggled ? 'fa fa-arrow-right' : 'fa fa-arrow-down'}
+            // Another option is to use the classnames import
+            // className={classnames({
+            //   'fa fa-arrow-down': toggled === false,
+            //   'fa fa-arrow-right': toggled === true,
+            // })}
             style={{ cursor: 'pointer' }}
             onClick={this.handleToggle}
           />
