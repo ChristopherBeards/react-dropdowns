@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DropDown from './DropDown';
+import SelectDropDown from './SelectDropDown';
 
 class Options extends Component {
   state = {
@@ -32,6 +33,7 @@ class Options extends Component {
     return (
       <div>
         <DropDown data={data} />
+        <SelectDropDown data={data} />
       </div>
     );
   }
